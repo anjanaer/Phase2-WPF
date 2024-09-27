@@ -1,0 +1,15 @@
+﻿<Window x:Class="IncrementDecrement.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IncrementDecrement"
+        mc:Ignorable="d"
+        Title="MenuWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btnCounter" Content="Counter" HorizontalAlignment="Left" Height="65" Margin="172,166,0,0" VerticalAlignment="Top" Width="119" Click="btnCounter_Click"/>
+        <Button x:Name="btnSumCalc" Content="Sum Calc&#xD;&#xA;" HorizontalAlignment="Left" Height="65" Margin="373,166,0,0" VerticalAlignment="Top" Width="126" Click="btnSumCalc_Click"/>
+        <Button x:Name="btnSquareCubeCalc" Content="Square Cube Calc&#xD;&#xA;" HorizontalAlignment="Left" Height="76" Margin="272,276,0,0" VerticalAlignment="Top" Width="111" Click="btnSquareCubeCalc_Click"/>
+
+    </Grid>
+</Window>
