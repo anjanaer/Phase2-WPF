@@ -1,0 +1,17 @@
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameProject.csproj.AssemblyReference.cache
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\EditFullNameWindow.g.cs
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameWindow.g.cs
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\App.g.cs
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameProject_MarkupCompile.cache
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameProject_MarkupCompile.lref
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\bin\Debug\FullNameProject.exe.config
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\bin\Debug\FullNameProject.exe
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\bin\Debug\FullNameProject.pdb
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\EditFullNameWindow.baml
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameWindow.baml
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameProject.g.resources
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameProject.Properties.Resources.resources
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameProject.csproj.GenerateResource.cache
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameProject.csproj.CoreCompileInputs.cache
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameProject.exe
+C:\Users\2021508\source\repos\FullNameProject\FullNameProject\obj\Debug\FullNameProject.pdb

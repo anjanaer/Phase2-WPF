@@ -1,0 +1,17 @@
+﻿<Window x:Class="FullNameProject.EditFullNameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FullNameProject"
+        mc:Ignorable="d"
+        Title="EditFullNameWindow" Height="450" Width="800" Closing="Window_Closing">
+    <Canvas>
+        <TextBlock x:Name="lblFullName" HorizontalAlignment="Left" Height="42" Margin="117,76,0,0" TextWrapping="Wrap" Text="FullName" VerticalAlignment="Top" Width="106"/>
+        <TextBox x:Name="txtFullName" Text="{Binding EditablePerson.FirstName}" HorizontalAlignment="Left" Height="21" Margin="295,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+        <TextBlock x:Name="lblLastName" HorizontalAlignment="Left" Height="42" Margin="117,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106"><Run Text="LastName"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="txtLastName" Text="{Binding EditablePerson.LastName}" HorizontalAlignment="Left" Height="21" Margin="295,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106"/>
+        <Button x:Name="btnEdit" Content="Update" HorizontalAlignment="Left" Height="43" Margin="193,188,0,0" VerticalAlignment="Top" Width="111" Click="Button_Click" Command="{Binding UpdateCommand}"/>
+
+    </Canvas>
+</Window>
