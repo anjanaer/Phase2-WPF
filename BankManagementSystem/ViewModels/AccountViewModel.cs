@@ -23,7 +23,7 @@ namespace BankManagementSystem.ViewModels
     {
 
         private Account _newAccount = null;
-       
+
         public DWidnowClose NewWindowClose;
         public DWidnowClose EditWindowClose;
 
@@ -47,9 +47,10 @@ namespace BankManagementSystem.ViewModels
         public Account SelectedAccount
         {
             get => _selectedAccount;
-            set { 
-                _selectedAccount = value; 
-                onPropertyChanged(nameof(SelectedAccount)); 
+            set
+            {
+                _selectedAccount = value;
+                onPropertyChanged(nameof(SelectedAccount));
             }
         }
 
@@ -69,15 +70,26 @@ namespace BankManagementSystem.ViewModels
             {
                 try
                 {
-                    return _repo.ReadAllAccount();
+                    return _repo.ReadAll();
                 }
-                catch(AccountException ae)
+                catch (AccountException ae)
                 {
                     Logger.log.Error(ae.Message);
                     throw;
                 }
-                
+
             }
+        }
+
+
+        public ObservableCollection<Account> GetSavingsAccounts()
+        {
+            return new ObservableCollection<Account>(Accounts.Where(a => a.Type == "savings"));
+        }
+
+        public ObservableCollection<Account> GetCurrentAccounts()
+        {
+            return new ObservableCollection<Account>(Accounts.Where(a => a.Type == "current"));
         }
 
         /// <summary>
@@ -89,6 +101,11 @@ namespace BankManagementSystem.ViewModels
         /// Gets the command for updating an existing account.
         /// </summary>
         public ICommand UpdateCommand { get; }
+
+        /// <summary>
+        /// Gets the command for deleting an existing account.
+        /// </summary>
+        public ICommand DeleteCommand { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountViewModel"/> class.
@@ -113,7 +130,8 @@ namespace BankManagementSystem.ViewModels
             };
             CreateCommand = new RelayCommand(Create);
             UpdateCommand = new RelayCommand(Update);
-           
+            DeleteCommand = new RelayCommand(Delete);
+
         }
 
         /// <summary>
@@ -154,7 +172,7 @@ namespace BankManagementSystem.ViewModels
                 Logger.log.Info($"An account with acoount number {newAccount.AccountNumber} has been created successfully");
                 this.NewAccount = new Account { AccountNumber = 0, Name = "", Balance = 0, Type = "", Email = "", PhoneNumber = "", Address = "", IsActive = false, InterestPercentage = "0", TransactionCount = 0, LastTransactionDate = DateTime.Now };
             }
-            catch(AccountException ae)
+            catch (AccountException ae)
             {
                 Logger.log.Error(ae.Message);
             }
@@ -174,9 +192,19 @@ namespace BankManagementSystem.ViewModels
                 return;
             }
 
+            var res = MessageBox.Show(messageBoxText: "Are you sure to Update?",
+                    caption: "Confirm",
+                    button: MessageBoxButton.YesNo,
+                    icon: MessageBoxImage.Question);
+
+            if (res != MessageBoxResult.Yes)
+            {
+                return;
+            }
+
             try
             {
-                _repo.UpdateAccount(this.SelectedAccount);
+                _repo.Update(this.SelectedAccount);
                 this.SelectedAccount = this.SelectedAccount;
                 var result = MessageBox.Show(messageBoxText: $"Account {SelectedAccount.AccountNumber} is updated successfully",
                         caption: "Alert",
@@ -184,11 +212,11 @@ namespace BankManagementSystem.ViewModels
                         icon: MessageBoxImage.Information);
                 Logger.log.Info($"Account {SelectedAccount.AccountNumber} is updated successfully");
             }
-            catch(AccountException ae)
+            catch (AccountException ae)
             {
                 Logger.log.Error(ae.Message);
             }
-            
+
 
             if (EditWindowClose != null)
             {
@@ -196,8 +224,49 @@ namespace BankManagementSystem.ViewModels
             }
         }
 
+        /// <summary>
+        /// Deletes an existing account.
+        /// </summary>
+        public void Delete()
+        {
+            if (this.SelectedAccount == null)
+            {
+                var result = MessageBox.Show(messageBoxText: "Please select an account",
+                    caption: "Alert",
+                    button: MessageBoxButton.OK,
+                    icon: MessageBoxImage.Information);
+                return;
+            }
 
-        
+            var res = MessageBox.Show(messageBoxText: "Are you sure to Delete?",
+                    caption: "Confirm",
+                    button: MessageBoxButton.YesNo,
+                    icon: MessageBoxImage.Question);
+
+            if (res != MessageBoxResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+
+                _repo.Delete(this.SelectedAccount);
+                this.SelectedAccount = this.SelectedAccount;
+                var result = MessageBox.Show(messageBoxText: $"Account {SelectedAccount.AccountNumber} is marked as deleted successfully",
+                        caption: "Alert",
+                        button: MessageBoxButton.OK,
+                        icon: MessageBoxImage.Information);
+                Logger.log.Info($"Account {SelectedAccount.AccountNumber} is marked as deleted successfully");
+            }
+            catch (AccountException ae)
+            {
+                Logger.log.Error(ae.Message);
+            }
+        }
+
+
+
     }
 
 }

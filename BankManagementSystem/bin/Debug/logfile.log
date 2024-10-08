@@ -1,0 +1,13 @@
+2024-10-07 09:40:48,310 [1] INFO  BankManagementSystem.Logger - An account with acoount number 3405689 has been created successfully
+2024-10-07 09:43:32,186 [1] INFO  BankManagementSystem.Logger - An account with acoount number 567890 has been created successfully
+2024-10-08 02:18:03,475 [1] INFO  BankManagementSystem.Logger - An account with acoount number 1234 has been created successfully
+2024-10-08 02:18:22,120 [1] INFO  BankManagementSystem.Logger - Account 1234 is marked as deleted successfully
+2024-10-08 02:18:42,586 [1] INFO  BankManagementSystem.Logger - Account 12345 is updated successfully
+2024-10-08 02:24:40,771 [1] INFO  BankManagementSystem.Logger - An account with acoount number 0 has been created successfully
+2024-10-08 02:24:52,712 [1] INFO  BankManagementSystem.Logger - Account 0 is marked as deleted successfully
+2024-10-08 06:41:05,075 [1] INFO  BankManagementSystem.Logger - An account with acoount number 23450 has been created successfully
+2024-10-08 06:58:57,190 [1] INFO  BankManagementSystem.Logger - An account with acoount number 1234567 has been created successfully
+2024-10-08 07:13:14,205 [1] INFO  BankManagementSystem.Logger - An account with acoount number 123450 has been created successfully
+2024-10-08 07:20:43,065 [1] INFO  BankManagementSystem.Logger - An account with acoount number 23440 has been created successfully
+2024-10-08 07:29:44,458 [1] INFO  BankManagementSystem.Logger - An account with acoount number 123450 has been created successfully
+2024-10-08 07:30:46,580 [1] INFO  BankManagementSystem.Logger - An account with acoount number 12345 has been created successfully

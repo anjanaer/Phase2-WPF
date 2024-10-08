@@ -21,6 +21,7 @@ namespace BankManagementSystem.Models
         /// Gets or sets the account holder's name.
         /// </summary>
         public string Name { get; set; }
+        public double InterestRate { get; set; }
 
         /// <summary>
         /// Gets or sets the account balance.
@@ -67,8 +68,20 @@ namespace BankManagementSystem.Models
 
         /// <summary>
         /// Gets or sets a value indicating whether the account is active.
-        /// </summary>
-        public bool IsActive { get; set; }
+        /// </summary>   
+        private bool _isActive;
+        public bool IsActive
+        {
+            get
+            {
+                return _isActive;
+            }
+            set
+            {
+                _isActive = value;
+                OnPropertyChanged(nameof(IsActive));
+            }
+        }
 
         /// <summary>
         /// Gets or sets the interest percentage for the account.

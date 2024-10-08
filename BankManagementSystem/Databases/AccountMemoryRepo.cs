@@ -29,7 +29,7 @@ namespace BankManagementSystem.Databases
         {
             accounts = new ObservableCollection<Account>();
             InitializeAccounts();
-        
+
         }
         /// <summary>
         /// Initializes the accounts collection with default accounts.
@@ -65,7 +65,7 @@ namespace BankManagementSystem.Databases
                 LastTransactionDate = DateTime.Now,
             });
         }
-        
+
         /// <summary>
         /// Creates an object for the AccountMemoryRepo class
         /// </summary>
@@ -93,7 +93,7 @@ namespace BankManagementSystem.Databases
             {
                 accounts.Add(account);
             }
-            catch(AccountException ae)
+            catch (AccountException ae)
             {
                 throw new AccountException("Error in creating account");
             }
@@ -101,7 +101,7 @@ namespace BankManagementSystem.Databases
             {
                 throw ex;
             }
-            
+
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace BankManagementSystem.Databases
         /// </summary>
         /// <param name="account">The account to update.</param>
         /// <exception cref="AccountException">Thrown if the account does not exist.</exception>
-        public void UpdateAccount(Account account)
+        public void Update(Account account)
         {
             try
             {
@@ -135,21 +135,21 @@ namespace BankManagementSystem.Databases
         /// </summary>
         /// <returns>A collection of all accounts in the repository.</returns>
         /// <exception cref="AccountException">Thrown if an error occurs while reading accounts.</exception>
-        public ObservableCollection<Account> ReadAllAccount()
+        public ObservableCollection<Account> ReadAll()
         {
             try
             {
                 return accounts;
             }
-            catch(AccountException ae)
+            catch (AccountException ae)
             {
                 throw new AccountException("Error reading accounts");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
-            
+
         }
 
         /// <summary>
@@ -157,9 +157,24 @@ namespace BankManagementSystem.Databases
         /// </summary>
         /// <param name="acNo">The account number of the account to delete.</param>
         /// <param name="account">The account to delete.</param>
-        public void DeleteAccount(int acNo, Account account)
+        public void Delete(Account account)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var existingAccount = accounts.FirstOrDefault(a => a.AccountNumber == account.AccountNumber);
+                if (existingAccount != null)
+                {
+                    existingAccount.IsActive = false;
+                }
+                else
+                {
+                    throw new AccountException("Account doesn't exists");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -185,7 +200,7 @@ namespace BankManagementSystem.Databases
                     throw new AccountException("Account Not Found , Please input valid account number");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -207,11 +222,11 @@ namespace BankManagementSystem.Databases
                     if (account.Balance < Amount)
                     {
                         throw new AccountException("Insufficient balance");
-                        
+
                     }
                     account.Balance = account.Balance - Amount;
                     account.LastTransactionDate = DateTime.Now;
-                    account.TransactionCount = account.TransactionCount + 1;               
+                    account.TransactionCount = account.TransactionCount + 1;
 
                 }
                 else
@@ -219,11 +234,11 @@ namespace BankManagementSystem.Databases
                     throw new AccountException("Account Not Found , Please input valid account number");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
-            
+
         }
 
         public void CalculateInterestAndUpdateBalance()

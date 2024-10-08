@@ -20,6 +20,7 @@ namespace BankManagementSystem.ViewModels
         /// <summary>
         /// Gets or sets the account number.
         /// </summary>
+
         private int _accountNumber;
         public int AccountNumber
         {

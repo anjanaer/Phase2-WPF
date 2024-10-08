@@ -15,27 +15,23 @@ using System.Windows.Shapes;
 namespace BankManagementSystem.Pages
 {
     /// <summary>
-    /// Interaction logic for NewAccountWindow.xaml
+    /// Interaction logic for AccountTypeWindow.xaml
     /// </summary>
-    public partial class NewAccountWindow : Window
+    public partial class AccountTypeWindow : Window
     {
-        public NewAccountWindow()
+        public AccountTypeWindow()
         {
             InitializeComponent();
             this.DataContext = FormConfig.accountViewModel;
-            
         }
 
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            e.Cancel = true;
-            this.Hide();
-        }
+            var savingsAccounts = FormConfig.accountViewModel.GetSavingsAccounts();
+            var currentAccounts = FormConfig.accountViewModel.GetCurrentAccounts();
 
-        public void WindowClose()
-        {
-            this.Hide();
+            grdSavingsAccounts.ItemsSource = savingsAccounts;
+            grdCurrentAccounts.ItemsSource = currentAccounts;
         }
     }
 }

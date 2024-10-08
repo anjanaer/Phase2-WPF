@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BankManagementSystem.Databases;
 using BankManagementSystem.Pages;
 using BankManagementSystem.ViewModels;
 
@@ -14,15 +15,17 @@ namespace BankManagementSystem
         public static DepositViewModel depositViewModel = null;
         public static WithdrawViewModel withdrawViewModel = null;
         public static NewAccountWindow newAccountWindow = null;
-        public static EditAccountWindow editAccountWindow = null; 
+        public static EditAccountWindow editAccountWindow = null;
         public static DepositWindow depositWindow = null;
         public static AccountListWindow accountListWindow = null;
         public static WithdrawWindow withdrawWindow = null;
         public static DashBoardWindow dashBoardWindow = null;
         public static AccountViewWindow accountViewWindow = null;
-        
+        public static AccountTypeWindow accountTypeWindow = null;
+
         static FormConfig()
         {
+
             accountViewModel = new AccountViewModel();
             depositViewModel = new DepositViewModel();
             withdrawViewModel = new WithdrawViewModel();
@@ -33,8 +36,9 @@ namespace BankManagementSystem
             withdrawWindow = new WithdrawWindow();
             dashBoardWindow = new DashBoardWindow();
             accountViewWindow = new AccountViewWindow();
+            accountTypeWindow = new AccountTypeWindow();
 
-            
+
         }
 
     }

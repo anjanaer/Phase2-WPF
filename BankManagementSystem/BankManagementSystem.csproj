@@ -60,10 +60,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BooleanToVisibilityConverter.cs" />
+    <Compile Include="ComboBoxItemToStringConverter.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Databases\AccountFileXmlRepo.cs" />
     <Compile Include="Databases\AccountMemoryRepo.cs" />
     <Compile Include="Exceptions\AccountException.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="Pages\AccountTypeWindow.xaml.cs">
+      <DependentUpon>AccountTypeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AccountViewWindow.xaml.cs">
       <DependentUpon>AccountViewWindow.xaml</DependentUpon>
     </Compile>
@@ -97,6 +103,10 @@
       <DependentUpon>AccountListWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AccountTypeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AccountViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
